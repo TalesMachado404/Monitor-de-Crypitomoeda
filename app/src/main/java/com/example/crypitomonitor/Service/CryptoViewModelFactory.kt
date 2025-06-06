@@ -11,11 +11,14 @@ class CryptoViewModelFactory: ViewModelProvider.Factory {
             .baseUrl("https://www.mercadobitcoin.net/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val service: CryptoService = retrofit.create(CryptoServicse::class.java)
+        val service: CryptoService = retrofit.create(CryptoService::class.java)
+
         return service
     }
-    override fun <T : ViewModel> create(modelClass: Class<T>): T
-    {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(CryptoViewModel::class.java)) {
+            return CryptoViewModel(service = createService()) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
-    return CryptoViewModel(service = createService()) as T
 }

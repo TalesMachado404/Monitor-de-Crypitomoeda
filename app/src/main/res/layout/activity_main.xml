@@ -20,3 +20,5 @@
         android:layout_height="wrap_content"
         layout="@layout/componente_botao" />
 </LinearLayout>
+
+//Corrigir o mainactivity
