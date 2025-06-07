@@ -1,6 +1,6 @@
 package com.example.crypitomonitor.state
 
-import com.example.crypitomonitor.Service.Ticker
+import com.example.crypitomonitor.service.Ticker
 
 sealed class ScreenState {
     object Loading : ScreenState()

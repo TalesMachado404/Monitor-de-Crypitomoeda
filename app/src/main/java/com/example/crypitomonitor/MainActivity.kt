@@ -9,8 +9,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.crypitomonitor.state.ScreenState
-import com.example.crypitomonitor.ViewModel.CryptoViewModel
-import com.example.crypitomonitor.ViewModel.CryptoViewModelFactory
+import com.example.crypitomonitor.service.CryptoViewModel
+import com.example.crypitomonitor.service.CryptoViewModelFactory
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -50,10 +50,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // ✅ Corrigido: sem viewModelScope aqui
         buttonRefresh.setOnClickListener {
-            viewModelScope.launch(Dispatchers.IO) {
-                viewModel.refresh()
-            }
+            viewModel.refresh()
         }
     }
 }

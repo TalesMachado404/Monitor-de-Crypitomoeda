@@ -1,4 +1,4 @@
-package com.example.crypitomonitor.Service
+package com.example.crypitomonitor.service
 
 class TickerResponse(
     val ticker: Ticker

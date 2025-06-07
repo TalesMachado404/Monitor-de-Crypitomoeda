@@ -1,4 +1,4 @@
-package com.example.crypitomonitor.Service
+package com.example.crypitomonitor.service
 
 
 import androidx.lifecycle.ViewModel

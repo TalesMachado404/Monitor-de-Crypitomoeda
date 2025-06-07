@@ -1,12 +1,9 @@
-package com.example.crypitomonitor.Service
+package com.example.crypitomonitor.service
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.crypitomonitor.Service.CryptoService
-import com.example.crypitomonitor.Service.TickerResponse
-import com.example.crypitomonitor.Service.Ticker
 import com.example.crypitomonitor.state.ScreenState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,6 +38,13 @@ class CryptoViewModel(
             }
         } catch (exception: Throwable) {
             _tickerLiveData.postValue(ScreenState.Error(exception))
+        }
+    }
+
+    // ✅ Adicione esta função para o botão Refresh funcionar
+    fun refresh() {
+        viewModelScope.launch(Dispatchers.IO) {
+            fetch()
         }
     }
 }

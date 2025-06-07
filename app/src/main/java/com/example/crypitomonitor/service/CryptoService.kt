@@ -1,6 +1,5 @@
-package com.example.crypitomonitor.Service
+package com.example.crypitomonitor.service
 
-import com.example.crypitomonitor.Service.TickerResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
